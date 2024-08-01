@@ -9,7 +9,6 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <img src={logoTuga} alt="Logo" />
-        
       </div>
       <div className="search-bar">
         <input type="text" placeholder="Buscar por profissionais" />
