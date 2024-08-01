@@ -5,69 +5,68 @@
     margin: 0 auto;
     max-width: 400px;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-  }
-  
-  .register-container h1 {
-    font-size: 24px;
+}
+
+.register-container h1 {
+    font-size: 35px;
     margin-bottom: 0;
-  }
-  
-  .register-container h2 {
+    font-weight: 400;
+}
+
+.register-container h2 {
     font-size: 32px;
     margin: 0 0 20px;
     font-weight: bold;
-  }
-  
-  .register-form {
+}
+
+.register-form {
     width: 100%;
-  }
-  
-  .register-form label {
+}
+
+.register-form label {
     display: block;
     margin-bottom: 10px;
-  }
-  
-  .register-form input[type="text"],
-  .register-form input[type="email"],
-  .register-form input[type="password"] {
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .account-type {
+}
+
+.account-type {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
-  }
-  
-  .account-type label {
+}
+
+.account-type label {
     display: flex;
     align-items: center;
-  }
-  
-  .register-form .terms {
+}
+
+.register-form .terms {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-  }
-  
-  .register-form .terms input {
+}
+
+.register-form .terms input {
     margin-right: 10px;
-  }
-  
-  .register-form .terms a {
+}
+
+.register-form .terms a {
     color: blue;
     text-decoration: underline;
-  }
-  
-  .register-button {
+}
+
+.register-button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -75,15 +74,28 @@
     background-color: black;
     color: white;
     font-size: 16px;
-  }
-  
-  .register-form p {
+}
+
+.register-form p {
     text-align: center;
     margin-top: 20px;
-  }
-  
-  .register-form p a {
+}
+
+.register-form p a {
     color: purple;
     text-decoration: underline;
-  }
-  
+}
+
+.date-label {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 10px;
+    margin-bottom: 20px !important;
+    align-items: center;
+}
+
+.date-input{
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #b2b2b2;
+}

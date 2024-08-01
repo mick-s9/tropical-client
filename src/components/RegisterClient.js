@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
+import './RegisterClient.css';
 
 axios.defaults.baseURL = 'http://localhost:5001'; // 
 
@@ -71,30 +72,51 @@ function RegisterClient() {
     <div className="register-container">
       <h1>Register Client</h1>
       <form onSubmit={handleSubmit} className="register-form">
-        <label>
-          Nome
-          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
-        </label>
-        <label>
-          Apelido
-          <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
-        </label>
-        <label>
-          ID
-          <input type="text" name="id" value={formData.id} onChange={handleChange} required />
-        </label>
-        <label>
-          Imagem de Perfil
-          <input type="file" name="profileImage" onChange={handleChange} />
-        </label>
-        <label>
-          Título do Perfil
-          <input type="text" name="profileTitle" value={formData.profileTitle} onChange={handleChange} required />
-        </label>
-        <label>
-          Descrição
-          <textarea name="description" value={formData.description} onChange={handleChange} required />
-        </label>
+        <input 
+          type="text" 
+          name="firstName" 
+          value={formData.firstName} 
+          onChange={handleChange} 
+          placeholder="Nome" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="lastName" 
+          value={formData.lastName} 
+          onChange={handleChange} 
+          placeholder="Apelido" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="id" 
+          value={formData.id} 
+          onChange={handleChange} 
+          placeholder="ID" 
+          required 
+        />
+        <input 
+          type="file" 
+          name="profileImage" 
+          onChange={handleChange} 
+        />
+        <input 
+          type="text" 
+          name="profileTitle" 
+          value={formData.profileTitle} 
+          onChange={handleChange} 
+          placeholder="Título do Perfil" 
+          required 
+        />
+        <textarea 
+          name="description" 
+          value={formData.description} 
+          onChange={handleChange} 
+          placeholder="Descrição" 
+          required 
+          className="description-textarea"
+        />
         <button type="submit" className="register-button">Concluir</button>
       </form>
     </div>

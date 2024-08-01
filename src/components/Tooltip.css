@@ -1,0 +1,25 @@
+/* Tooltip.css */
+.tooltip {
+    position: absolute;
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 250px;
+    font-size: 12px;
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #f9f9f9 transparent transparent;
+  }
+  

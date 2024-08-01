@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
+import Tooltip from './Tooltip';
 import './Register.css';
 
 function Register() {
@@ -9,15 +10,17 @@ function Register() {
   const [formData, setFormData] = useState({
     accountType: 'client',
     phoneNumber: '',
-    phoneVerificationCode: '123',
+    phoneVerificationCode: '',
     email: '',
-    emailVerificationCode: 'asd',
+    emailVerificationCode: '',
     password: '',
     confirmPassword: '',
     dateOfBirth: '',
     address: '',
     termsAccepted: false
   });
+
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -27,16 +30,25 @@ function Register() {
     });
   };
 
+  const validatePassword = (password) => {
+    // const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // return passwordRegex.test(password);
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    if (formData.email !== formData.email) {
-      alert('Emails do not match');
+
+    if (!validatePassword(formData.password)) {
+      alert('Password must be at least 8 characters long, contain at least one uppercase letter, one number, and one special character.');
       return;
     }
+
     if (!formData.termsAccepted) {
       alert('You must accept the terms of service');
       return;
@@ -77,38 +89,79 @@ function Register() {
             Freelancer
           </label>
         </div>
-        <label>
-          Número de Telefone
-          <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
-        </label>
-        <label>
-          Código de Verificação do Telefone
-          <input type="text" name="phoneVerificationCode" value={formData.phoneVerificationCode} onChange={handleChange} required />
-        </label>
-        <label>
-          E-mail
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-        </label>
-        <label>
-          Código de Verificação do E-mail
-          <input type="text" name="emailVerificationCode" value={formData.email} onChange={handleChange} required />
-        </label>
-        <label>
-          Senha
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-        </label>
-        <label>
-          Confirmar Senha
-          <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
-        </label>
-        <label>
+        <input
+          type="text"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          placeholder="Número de Telefone"
+          required
+        />
+        <input
+          type="text"
+          name="phoneVerificationCode"
+          value={formData.phoneVerificationCode}
+          onChange={handleChange}
+          placeholder="Código de Verificação do Telefone"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="E-mail"
+          required
+        />
+        <input
+          type="text"
+          name="emailVerificationCode"
+          value={formData.emailVerificationCode}
+          onChange={handleChange}
+          placeholder="Código de Verificação do E-mail"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          onFocus={() => setShowTooltip(true)}
+          onBlur={() => setShowTooltip(false)}
+          placeholder="Senha"
+          required
+        />
+        {showTooltip && (
+          <Tooltip message="A senha deve ter pelo menos 8 caracteres, conter pelo menos uma letra maiúscula, um número e um caractere especial." />
+        )}
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          placeholder="Confirmar Senha"
+          required
+        />
+        <label htmlFor="dateOfBirth" className="date-label">
           Data de Nascimento
-          <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
+          <input
+            type="date"
+            name="dateOfBirth"
+            id="dateOfBirth"
+            value={formData.dateOfBirth}
+            onChange={handleChange}
+            className="date-input"
+            required
+          />
         </label>
-        <label>
-          Endereço Completo
-          <input type="text" name="address" value={formData.address} onChange={handleChange} required />
-        </label>
+        <input
+          type="text"
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
+          placeholder="Endereço Completo"
+          required
+        />
         <label className="terms">
           <input
             type="checkbox"

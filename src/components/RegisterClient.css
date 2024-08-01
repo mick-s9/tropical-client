@@ -1,0 +1,29 @@
+/* .register-form input,
+.register-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.register-form textarea {
+  resize: vertical;
+  width: calc(100% - 20px);
+}
+
+.register-form{
+    margin-top: 1rem;
+} */
+
+.description-textarea{
+display: block;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.register-form textarea {
+    resize: vertical;
+  }
