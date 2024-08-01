@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
-axios.defaults.baseURL = 'http://localhost:5001'; // Ensure the base URL is set correctly
+axios.defaults.baseURL = 'http://localhost:5001'; //
 
 function RegisterFreelancer() {
   const { setUserId } = useContext(UserContext);
@@ -19,6 +19,7 @@ function RegisterFreelancer() {
     profileImage: '',
     profileTitle: '',
     description: '',
+    citizenCard: '',
     hourlyRate: '',
     categories: '',
     subcategories: ''
@@ -61,8 +62,12 @@ function RegisterFreelancer() {
       alert('Freelancer registration successful.');
       navigate('/');
     } catch (error) {
-      console.error("Error during freelancer registration:", error);
-      alert('Error registering freelancer: ' + error.message);
+      if (error.response && error.response.data && error.response.data.message === 'User already exists') {
+        alert('User already exists');
+      } else {
+        console.error("Error during freelancer registration:", error);
+        alert('Error registering freelancer: ' + error.message);
+      }
     }
   };
 
@@ -81,6 +86,10 @@ function RegisterFreelancer() {
         <label>
           NIF
           <input type="text" name="nif" value={formData.nif} onChange={handleChange} required />
+        </label>
+        <label>
+          Cartão Cidadão
+          <input type="text" name="citizenCard" value={formData.citizenCard} onChange={handleChange} required />
         </label>
         <label>
           Imagem de Perfil

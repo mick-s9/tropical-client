@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
-axios.defaults.baseURL = 'http://localhost:5001'; // Ensure the base URL is set correctly
+axios.defaults.baseURL = 'http://localhost:5001'; // 
 
 function RegisterClient() {
   const { setUserId } = useContext(UserContext);
@@ -15,7 +15,7 @@ function RegisterClient() {
     ...initialFormData,
     firstName: '',
     lastName: '',
-    nif: '',
+    id: '',
     profileImage: '',
     profileTitle: '',
     description: ''
@@ -43,10 +43,10 @@ function RegisterClient() {
       data.append(key, formData[key]);
     }
 
-    console.log('Data sent to backend:', formData);
+    console.log('Data sent to backend:', Object.fromEntries(data.entries()));
 
     try {
-      const response = await axios.post('/auth/register/client', formData, {
+      const response = await axios.post('/auth/register/client', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -58,8 +58,12 @@ function RegisterClient() {
       alert('Client registration successful.');
       navigate('/');
     } catch (error) {
-      console.error("Error during client registration:", error);
-      alert('Error registering client: ' + error.message);
+      if (error.response && error.response.data && error.response.data.message === 'User already exists') {
+        alert('User already exists');
+      } else {
+        console.error("Error during client registration:", error);
+        alert('Error registering client: ' + error.message);
+      }
     }
   };
 
@@ -76,8 +80,8 @@ function RegisterClient() {
           <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
         </label>
         <label>
-          NIF
-          <input type="text" name="nif" value={formData.nif} onChange={handleChange} required />
+          ID
+          <input type="text" name="id" value={formData.id} onChange={handleChange} required />
         </label>
         <label>
           Imagem de Perfil

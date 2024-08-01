@@ -7,7 +7,7 @@ function Register() {
   const { setUserId } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    accountType: 'client', // or 'freelancer'
+    accountType: 'client',
     phoneNumber: '',
     phoneVerificationCode: '123',
     email: '',
