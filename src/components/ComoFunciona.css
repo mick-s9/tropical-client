@@ -1,0 +1,74 @@
+.como-funciona {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .section-como {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    flex-direction: column;
+    margin-bottom: 5rem;
+  }
+  
+  .section.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .image {
+    width: 180px;
+    margin: 0 20px;
+  }
+  
+  .text {
+    max-width: 400px;
+    text-align: left;
+  }
+  
+  .connecting-line {
+    width: 100%;
+    height: auto;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button.publish-project {
+    background-color: #DDA0DD;
+  }
+  
+  button.work-as-freelancer {
+    background-color: #6C63FF;
+  }
+  
+
+  .container-2-section-como{
+    display: flex;
+    align-items: center;
+  }
+
+  .container-svg-line{
+    position: absolute;
+    top: 5rem;
+  }
+
+  .container-svg-line svg{
+    width: 100%;
+  }
+
+  .container-2-section-como.reverse{
+    flex-direction: row-reverse;
+  }

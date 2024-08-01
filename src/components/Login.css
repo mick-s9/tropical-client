@@ -1,0 +1,71 @@
+/* src/components/Login.css */
+.login-container {
+    background-image: url('https://s3-alpha-sig.figma.com/img/7e1e/a172/ce20adec990e7c62064b95e681926612?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=i7jk7~hhGLoj3t0whWCe6wfjhDvtMEvxtxdd3r9X7tJWZdXaGGi5jlIbfCkHEAwySuU8I~odCJAo9ucRAaKkSCcynJyrhiTAakb1fHp-tKRhjGWkdBw6DIkcq8866Nhdhj-d94Gfj4JcooyMkvG-uRT1C3AwoDLivdodFkiZJmzPe4Ywc44dsXsU7W9PaA9hj8n4mf1p1psXWIsIev0aHWg3AXrdb8Q7tQ0vlS3DfJ~k1RwJsx5XtCJrjDu3MjT~AZN42alBYP4hR7Uy2w-day1appi7MrARj~uN44x~3nbupt-DlXb2znNzDWbihe9UuSkJOigTkKqm-ip3bmfMOQ__');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15rem;
+
+  }
+  
+  .login-form {
+    background: rgba(255, 255, 255, 0.943);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .login-form form div {
+    margin-bottom: 1rem;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #a390ee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .login-form button:hover {
+    background-color: #8469c7;
+  }
+  
+  .login-form p {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .login-form a {
+    color: #a390ee;
+    text-decoration: none;
+  }
+  
+  .login-form a:hover {
+    text-decoration: underline;
+  }
+  
