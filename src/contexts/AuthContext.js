@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode'; // Correggi l'importazione
+import { jwtDecode } from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   const isTokenValid = (token) => {
     try {
-      const decoded = jwtDecode(token); // Usa jwtDecode qui
+      const decoded = jwtDecode(token);
       const now = Date.now() / 1000;
       return decoded.exp > now;
     } catch (error) {

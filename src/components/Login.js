@@ -11,12 +11,15 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
+  const pathServer = "https://tropical-server-9435d6950866.herokuapp.com";
+  const pathLocal = "http://localhost:5001";
+
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log('Login attempt:', { email, password });
 
     try {
-      const response = await axios.post('http://localhost:5001/auth/login', {
+      const response = await axios.post(pathServer + '/auth/login', {
         email,
         password,
       });

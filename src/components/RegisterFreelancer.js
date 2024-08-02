@@ -4,7 +4,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import './RegisterFreelancer.css';
 
-axios.defaults.baseURL = 'http://localhost:5001'; //
+
+const pathServer = "https://tropical-server-9435d6950866.herokuapp.com";
+const pathLocal = "http://localhost:5001";
 
 function RegisterFreelancer() {
   const { setUserId } = useContext(UserContext);
@@ -55,7 +57,7 @@ function RegisterFreelancer() {
     console.log('Data sent to backend:', Object.fromEntries(data.entries()));
 
     try {
-      const response = await axios.post('/auth/register/freelancer', data, {
+      const response = await axios.post(pathServer + '/auth/register/freelancer', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
