@@ -19,13 +19,12 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/logged" element={<PrivateRoute><div>User logged success</div></PrivateRoute>} />
+          <Route path="/logged" element={<PrivateRoute><div>Test private route</div></PrivateRoute>} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/freelancer" element={<RegisterFreelancer />} />
           <Route path="/register/client" element={<RegisterClient />} />
           <Route path="/como-funciona" element={<ComoFunciona />} />
           <Route path="/login" element={<Login />} />
-          {/* Default route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

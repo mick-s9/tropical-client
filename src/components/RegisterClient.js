@@ -68,6 +68,10 @@ function RegisterClient() {
     }
   };
 
+  const handleButtonClick = () => {
+    document.getElementById('profileImage').click();
+  };
+
   return (
     <div className="register-container">
       <h1>Register Client</h1>
@@ -96,11 +100,23 @@ function RegisterClient() {
           placeholder="ID" 
           required 
         />
-        <input 
-          type="file" 
-          name="profileImage" 
-          onChange={handleChange} 
-        />
+
+        <div className="photo-section">
+          <div className="photo-icon">
+            <img src={"https://s3-alpha-sig.figma.com/img/8514/e653/da09d97df7431de89bd4517a78bad424?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hudzJ1tSUWM70EZjT21Di2QrXz-LN9dEl8ohsu72XYlhU50rtIg8QOS5Ba41In~hj~mE2IMdxeDxiTkX33U0bPTbjfkSNUG9DnigqshqiKbCTJDMxvvxTyDmgYkvoYR-V9yfcm0oVxD0OtkVfQIqq65pkMrxYINES~FXu6zHAy0F1u795~ljL7KiRmLQP~R4FV6bWb5ODI5ZzUq92xE1pNeiX2R7oFMwohzue5vSdH~7jqo6eSPQCjxVDJd7Dx5Q6ml3YKJioa3YxNibC7rzQMS~afg1ufSzLzMfpeNRgVxX~yKSj0V~eq7OUzoxnB8HHlHOO2REvmw34R36zHi97Q__"} alt="Camera Icon" />
+          </div>
+          <button type="button" onClick={handleButtonClick} className="add-photo-button">
+            Adicionar Foto
+          </button>
+          <input 
+            type="file" 
+            name="profileImage" 
+            id="profileImage" 
+            onChange={handleChange} 
+            style={{ display: 'none' }}
+          />
+        </div>
+
         <input 
           type="text" 
           name="profileTitle" 

@@ -1,74 +1,239 @@
+@font-face {
+    font-family: 'poppins';
+    src: url('../resources/fonts/Poppins-Light.ttf');
+}
+
+.home-container {
+    font-family: poppins;
+}
+
+.home-header-como {
+    position: relative;
+    height: 80vh;
+    background-color: #B383F3;
+    background: linear-gradient(to right, #aa6bfc 0%, #b079f7e8 50%, #b27cf99d 90%);
+}
+
+
+.header-content-como {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    color: white;
+    width: 50vw;
+    z-index: 2;
+}
+
+
+.como-funciona .home-header-como h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    width: 70%;
+    text-align: start;
+}
+
+.header-buttons-como {
+    display: flex;
+    gap: 2rem;
+}
+
+.button-como {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 12px;
+}
+
+.button-como.primary {
+    background-color: #D6B8FF;
+    color: white;
+    min-width: 200px;
+}
+
+.button-como.secondary {
+    background-color: #363636;
+    color: white;
+}
+
+.home-header-como img {
+    width: 50%;
+    z-index: 1;
+    right: 0px;
+    position: absolute;
+    margin-right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 800px;
+}
+
+.button-second-section-como .button {
+    padding: 25px 75px;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+/* -------------------------------------- */
+
+.como-funciona {
+    font-family: poppins;
+}
+
+.como-funciona .cta-buttons{
+    margin-top: 4rem;
+}
+
 .como-funciona {
     text-align: center;
-    padding: 20px;
-  }
-  
-  .section-como {
+}
+
+.section-como {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0;
     flex-direction: column;
-    margin-bottom: 5rem;
-  }
-  
-  .section.reverse {
+    margin-bottom: 6rem;
+}
+
+.section.reverse {
     flex-direction: row-reverse;
-  }
-  
-  .image {
-    width: 180px;
+}
+
+.image-como {
+    width: 350px;
     margin: 0 20px;
-  }
-  
-  .text {
+    z-index: 100;
+}
+
+.text {
     max-width: 400px;
     text-align: left;
-  }
-  
-  .connecting-line {
+}
+
+.connecting-line {
     width: 100%;
     height: auto;
-  }
-  
-  .buttons {
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #6C63FF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button.publish-project {
-    background-color: #DDA0DD;
-  }
-  
-  button.work-as-freelancer {
-    background-color: #6C63FF;
-  }
-  
+}
 
-  .container-2-section-como{
+.buttons {
+    margin-top: 20px;
+}
+
+button.publish-project {
+    background-color: #DDA0DD;
+}
+
+button.work-as-freelancer {
+    background-color: #6C63FF;
+}
+
+
+.container-2-section-como {
     display: flex;
     align-items: center;
-  }
+}
 
-  .container-svg-line{
+.container-svg-line {
     position: absolute;
-    top: 5rem;
-  }
+    top: 10rem;
+}
 
-  .container-svg-line svg{
-    width: 100%;
-  }
-
-  .container-2-section-como.reverse{
+.container-2-section-como.reverse {
     flex-direction: row-reverse;
-  }
+}
+
+.t-right {
+    margin-left: 5vw;
+}
+
+.t-left {
+    margin-right: 5vw;
+}
+
+.text h3 {
+    font-size: 30px;
+}
+
+.container-section-lines h1 {
+    margin-bottom: 5rem;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+}
+
+/* ------------------------- */
+
+.container-2-home-como .home-header-como {
+    background-color: wheat;
+}
+
+.home-header-como-2 {
+    position: relative;
+    height: 80vh;
+    background-color: white;
+    margin-top: 9rem;
+    padding-bottom: 7rem;
+}
+
+.home-header-como-2 img {
+    width: 45%;
+    z-index: 1;
+    right: 0px;
+    position: absolute;
+    margin-right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 800px;
+}
+
+.home-header-como-2 .header-content-como h1 {
+    color: black;
+    text-align: start;
+}
+
+.home-header-como-2 .header-content-como p {
+    color: black;
+    text-align: start;
+}
+
+.home-header-como-2 .header-content-como {
+    width: 35vw;
+}
+
+.container-come-grid-como{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.container-come-grid-como > div {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.connector-line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 23rem;
+}
+.connector-line svg {
+    width: 100%;
+    height: 100%;
+}
+
+.container-grid-4-home-como{
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+.como-funciona .header-4-home{
+    margin-top: 4rem;
+}

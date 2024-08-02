@@ -1,0 +1,63 @@
+.profile-card {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 3rem;
+    background-color:white;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  h4 {
+    margin: 5px 0;
+    color: #777;
+  }
+  
+  p {
+    color: #555;
+    font-size: 14px;
+  }
+
+  .description-carousel-profile{
+    text-align: start;
+  }
+
+  .name-title-carousel-profile{
+    text-align: start;
+    color: #DDA0DD;
+  }
+
+  .container-carousel .testimonial-header {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    color: #333;
+}
+
+.container-carousel{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #f4f4f4;
+}
+
+.container-carousel .testimonial-subheader{
+    font-size: 34px;
+}
+  

@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import './Home.css';
 
@@ -103,12 +102,8 @@ function Home() {
                     <button className="button secondary">Trabalhe como Freela</button>
                 </div>
             </div>
-
-
-
-
             <div className='section-2-home'>
-                <header className="home-header">
+                <div className="home-header">
                     <div className="header-content">
                         <h1>Torne-se um profissional digital.Torne-se um freelancer.</h1>
                         <p>Você pode melhorar a sua presença na web, vender online, vender nas redes sociais, criar conteúdos que mantenham seus clientes interessados ​na sua marca e muito mais!</p>
@@ -117,7 +112,7 @@ function Home() {
                         </div>
                     </div>
                     <img alt="Background" className="header-background" />
-                </header>
+                </div>
                 <section className="how-it-works">
                     <h2 className='h2-come-funciona'>Acompanhe nossos resultados!</h2>
                     <div className="steps">
@@ -164,7 +159,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
             <div className='section-3-home'>
                 <div class="testimonial-header">
                     Milhares de pessoas acreditam <br></br> em nossos <span className='testimonial-subheader'>FREELANCES</span>
@@ -197,9 +191,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
-
-
             <div class="container-4-home">
                 <div class="header-4-home">
                     <h1>Não deixe para amanhã, o que pode fazer HOJE!</h1>
@@ -234,11 +225,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
     );
 }
 

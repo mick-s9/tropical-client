@@ -31,9 +31,8 @@ function Register() {
   };
 
   const validatePassword = (password) => {
-    // const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    // return passwordRegex.test(password);
-    return true;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
   };
 
   const handleSubmit = async (e) => {
@@ -54,7 +53,7 @@ function Register() {
       return;
     }
 
-    // Here we just navigate to the appropriate form
+    //navigate to the appropriate form
     if (formData.accountType === 'client') {
       navigate('/register/client', { state: { formData } });
     } else {
