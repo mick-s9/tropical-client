@@ -67,7 +67,7 @@ const Login = () => {
           New user? <a href="/register">Create a new account</a>
         </p>
         <p>
-          Forgot password? <a href="/recover">Recover</a>
+          Forgot password? <a href="/request-password-reset">Recover</a>
         </p>
         {message && <p>{message}</p>}
       </div>

@@ -41,3 +41,74 @@
   .description-freelancer{
     width: 100%;
   }
+
+
+
+  /* ------------------- */
+
+  .multi-select {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .multi-select-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  .multi-select-option input[type="checkbox"] {
+    margin-left: 10px;
+  }
+  
+  .register-form label {
+    display: block;
+  }
+  
+  .register-form input,
+  .register-form textarea,
+  .register-form button {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .register-form input:focus,
+  .register-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .photo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-photo-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-photo-button:hover {
+    background-color: #0056b3;
+  }
+  
+.multi-select-option{
+  display: flex !important;
+  flex-direction: row-reverse !important;
+}

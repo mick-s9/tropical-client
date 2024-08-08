@@ -37,7 +37,7 @@
 .register-form input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -101,3 +101,33 @@
     border-radius: 6px;
     border: 1px solid #b2b2b2;
 }
+
+.input-group-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .input-group-inline input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .input-group-inline button {
+    flex-shrink: 0;
+  }
+
+  
+  .input-group-inline button{
+    margin-top: 0px !important;
+  }
+
+  .verified {
+    border: 2px solid green !important;
+  }
+
+  .select-country-code{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }

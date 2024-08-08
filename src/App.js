@@ -11,6 +11,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { AuthProvider } from './contexts/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
+import RequestPasswordReset from './components/RequestPasswordReset';
+import ResetPassword from './components/ResetPassword';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/register/client" element={<RegisterClient />} />
           <Route path="/como-funciona" element={<ComoFunciona />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/request-password-reset" element={<RequestPasswordReset />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

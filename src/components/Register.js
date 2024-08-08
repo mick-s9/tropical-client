@@ -2,13 +2,25 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import Tooltip from './Tooltip';
+import axios from 'axios';
 import './Register.css';
+
+const pathServer = "https://tropical-server-9435d6950866.herokuapp.com";
+const pathLocal = "http://localhost:5001";
+
+const countryCodes = [
+  { code: '+1', name: 'USA' },
+  { code: '+44', name: 'UK' },
+  { code: '+39', name: 'Italy' },
+  // Aggiungi altri prefissi internazionali qui
+];
 
 function Register() {
   const { setUserId } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     accountType: 'client',
+    countryCode: '+39',
     phoneNumber: '',
     phoneVerificationCode: '',
     email: '',
@@ -21,6 +33,10 @@ function Register() {
   });
 
   const [showTooltip, setShowTooltip] = useState(false);
+  const [isPhoneVerified, setIsPhoneVerified] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [isEmailVerificationDisabled, setIsEmailVerificationDisabled] = useState(false);
+  const [isPhoneVerificationDisabled, setIsPhoneVerificationDisabled] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -53,11 +69,83 @@ function Register() {
       return;
     }
 
-    //navigate to the appropriate form
+    if (!isPhoneVerified) {
+      alert('Phone number not verified');
+      return;
+    }
+
+    if (!isEmailVerified) {
+      alert('Email not verified');
+      return;
+    }
+
+    // Navigate to the appropriate form
     if (formData.accountType === 'client') {
       navigate('/register/client', { state: { formData } });
     } else {
       navigate('/register/freelancer', { state: { formData } });
+    }
+  };
+
+  const sendPhoneCode = async () => {
+    const fullPhoneNumber = formData.countryCode + formData.phoneNumber;
+    try {
+      await axios.post(pathLocal + '/auth/send-phone-code', { phone: fullPhoneNumber });
+      alert('Phone verification code sent');
+    } catch (error) {
+      console.error('Error sending phone verification code:', error);
+      alert('Failed to send phone verification code');
+    }
+  };
+
+  const verifyPhoneCode = async () => {
+    const fullPhoneNumber = formData.countryCode + formData.phoneNumber;
+    try {
+      const response = await axios.post(pathLocal + '/auth/verify-phone-code', {
+        phone: fullPhoneNumber,
+        code: formData.phoneVerificationCode
+      });
+      if (response.data.success) {
+        setIsPhoneVerified(true);
+        setIsPhoneVerificationDisabled(true);
+        console.log('Phone number verified');
+        alert('Phone number verified');
+      } else {
+        alert('Invalid phone verification code');
+      }
+    } catch (error) {
+      console.error('Error verifying phone code:', error);
+      alert('Failed to verify phone code');
+    }
+  };
+
+  const sendEmailCode = async () => {
+    try {
+      await axios.post(pathLocal + '/auth/send-email-code', { email: formData.email });
+      alert('Email verification code sent');
+    } catch (error) {
+      console.error('Error sending email verification code:', error);
+      alert('Failed to send email verification code');
+    }
+  };
+
+  const verifyEmailCode = async () => {
+    try {
+      const response = await axios.post(pathLocal + '/auth/verify-email-code', {
+        email: formData.email,
+        code: formData.emailVerificationCode
+      });
+      if (response.data.success) {
+        setIsEmailVerified(true);
+        setIsEmailVerificationDisabled(true);
+        console.log('Email verified');
+        alert('Email verified');
+      } else {
+        alert('Invalid email verification code');
+      }
+    } catch (error) {
+      console.error('Error verifying email code:', error);
+      alert('Failed to verify email code');
     }
   };
 
@@ -88,38 +176,77 @@ function Register() {
             Freelancer
           </label>
         </div>
-        <input
-          type="text"
-          name="phoneNumber"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          placeholder="Número de Telefone"
-          required
-        />
-        <input
-          type="text"
-          name="phoneVerificationCode"
-          value={formData.phoneVerificationCode}
-          onChange={handleChange}
-          placeholder="Código de Verificação do Telefone"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="E-mail"
-          required
-        />
-        <input
-          type="text"
-          name="emailVerificationCode"
-          value={formData.emailVerificationCode}
-          onChange={handleChange}
-          placeholder="Código de Verificação do E-mail"
-          required
-        />
+        <div className="input-group-inline">
+          <select
+            name="countryCode"
+            className='select-country-code'
+            value={formData.countryCode}
+            onChange={handleChange}
+            required
+          >
+            {countryCodes.map((country) => (
+              <option key={country.code} value={country.code}>
+                {country.name} ({country.code})
+              </option>
+            ))}
+          </select>
+          <input
+            type="text"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            placeholder="Número de Telefone"
+            className={isPhoneVerified ? 'verified' : ''}
+            required
+          />
+          <button type="button" onClick={sendPhoneCode}>Send Code</button>
+        </div>
+        <div className="input-group-inline">
+          <input
+            type="text"
+            name="phoneVerificationCode"
+            value={formData.phoneVerificationCode}
+            onChange={handleChange}
+            placeholder="Código de Verificação do Telefone"
+            required
+          />
+          <button 
+            type="button" 
+            onClick={verifyPhoneCode} 
+            disabled={isPhoneVerificationDisabled}
+          >
+            Verify Code
+          </button>
+        </div>
+        <div className="input-group-inline">
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="E-mail"
+            className={isEmailVerified ? 'verified' : ''}
+            required
+          />
+          <button type="button" onClick={sendEmailCode}>Send Code</button>
+        </div>
+        <div className="input-group-inline">
+          <input
+            type="text"
+            name="emailVerificationCode"
+            value={formData.emailVerificationCode}
+            onChange={handleChange}
+            placeholder="Código de Verificação do E-mail"
+            required
+          />
+          <button 
+            type="button" 
+            onClick={verifyEmailCode} 
+            disabled={isEmailVerificationDisabled}
+          >
+            Verify Code
+          </button>
+        </div>
         <input
           type="password"
           name="password"
