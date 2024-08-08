@@ -90,7 +90,7 @@ function Register() {
   const sendPhoneCode = async () => {
     const fullPhoneNumber = formData.countryCode + formData.phoneNumber;
     try {
-      await axios.post(pathLocal + '/auth/send-phone-code', { phone: fullPhoneNumber });
+      await axios.post(pathServer + '/auth/send-phone-code', { phone: fullPhoneNumber });
       alert('Phone verification code sent');
     } catch (error) {
       console.error('Error sending phone verification code:', error);
@@ -101,7 +101,7 @@ function Register() {
   const verifyPhoneCode = async () => {
     const fullPhoneNumber = formData.countryCode + formData.phoneNumber;
     try {
-      const response = await axios.post(pathLocal + '/auth/verify-phone-code', {
+      const response = await axios.post(pathServer + '/auth/verify-phone-code', {
         phone: fullPhoneNumber,
         code: formData.phoneVerificationCode
       });
@@ -121,7 +121,7 @@ function Register() {
 
   const sendEmailCode = async () => {
     try {
-      await axios.post(pathLocal + '/auth/send-email-code', { email: formData.email });
+      await axios.post(pathServer + '/auth/send-email-code', { email: formData.email });
       alert('Email verification code sent');
     } catch (error) {
       console.error('Error sending email verification code:', error);
@@ -131,7 +131,7 @@ function Register() {
 
   const verifyEmailCode = async () => {
     try {
-      const response = await axios.post(pathLocal + '/auth/verify-email-code', {
+      const response = await axios.post(pathServer + '/auth/verify-email-code', {
         email: formData.email,
         code: formData.emailVerificationCode
       });
