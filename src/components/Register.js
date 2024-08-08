@@ -182,6 +182,7 @@ function Register() {
             className='select-country-code'
             value={formData.countryCode}
             onChange={handleChange}
+            disabled={isPhoneVerified}
             required
           >
             {countryCodes.map((country) => (
@@ -197,9 +198,10 @@ function Register() {
             onChange={handleChange}
             placeholder="Número de Telefone"
             className={isPhoneVerified ? 'verified' : ''}
+            disabled={isPhoneVerified}
             required
           />
-          <button type="button" onClick={sendPhoneCode}>Send Code</button>
+          <button type="button" onClick={sendPhoneCode} disabled={isPhoneVerified}>Send Code</button>
         </div>
         <div className="input-group-inline">
           <input
@@ -226,9 +228,10 @@ function Register() {
             onChange={handleChange}
             placeholder="E-mail"
             className={isEmailVerified ? 'verified' : ''}
+            disabled={isEmailVerified}
             required
           />
-          <button type="button" onClick={sendEmailCode}>Send Code</button>
+          <button type="button" onClick={sendEmailCode} disabled={isEmailVerified}>Send Code</button>
         </div>
         <div className="input-group-inline">
           <input
